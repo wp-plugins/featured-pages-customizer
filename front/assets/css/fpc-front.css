@@ -1,0 +1,721 @@
+/* BOOTSTRAP */
+.fpc-container {
+  width:auto;
+  margin-right: auto!important;
+  margin-left: auto!important;
+  *zoom: 1;
+  clear: both;
+  position: relative;
+}
+.fpc-container:before,
+.fpc-container:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.fpc-container:after {
+  clear: both;
+}
+.fpc-container:before,
+.fpc-container:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.fpc-container:after {
+  clear: both;
+}
+
+.fpc-row-fluid {
+  width: 100%;
+  *zoom: 1;
+  clear: both;
+  margin: 0 0!important;
+}
+.fpc-row-fluid:before,
+.fpc-row-fluid:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.fpc-row-fluid:after {
+  clear: both;
+}
+
+.fpc-row-fluid [class*="fpc-span"] {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  margin-left: 2.127659574%!important;
+  *margin-left: 2.127659574%!important;
+  margin-right: 0px!important;
+}
+
+.fpc-row-fluid:before, .fpc-row-fluid:after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+.fpc-row-fluid [class*="fpc-span"]:first-child {
+  margin-left: 0px!important;
+  margin-right: 0px!important;
+}
+
+.fpc-row-fluid .fpc-span4 {
+  width: 31.914893617%;
+  *width: 31.861702128%;
+}
+.fpc-row-fluid .fpc-span12 {
+  width: 100%;
+  *width: 99.946808511%;
+  margin-left: 0!important;
+}
+
+
+.fpc-span1, .fpc-span2, .fpc-span3, .fpc-span4, .fpc-span5, .fpc-span6, .fpc-span7, .fpc-span8, .fpc-span9, .fpc-span10, .fpc-span11, .fpc-span12 {
+-moz-transition: width 0.5s ease-in-out, left 0.7s ease-in-out, right 0.7s ease-in-out;
+-webkit-transition: width 0.5s ease-in-out, left 0.7s ease-in-out, right 0.7s ease-in-out;
+-o-transition: width 0.5s ease-in-out, left 0.7s ease-in-out, right 0.7s ease-in-out;
+transition: width 0.5s ease-in-out, left 0.7s ease-in-out, right 0.7s ease-in-out;
+}
+
+
+/* FEATURED PAGES
+    -------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.fpc-marketing {
+  margin-top: 20px
+}
+.fpc-marketing .fpc-widget-area {
+  padding: 10px 0px;
+}
+.fpc-widget-front {
+  text-align: center;
+  margin: auto!important;
+}
+.fpc-marketing .fpc-widget-front h2 {
+  font-weight: normal;
+  font-size: 1.6em;
+  margin: 10px 0;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 20px;
+  color: inherit;
+  text-shadow: 0px 1px 0px #FFF;
+  text-align: center;
+}
+
+
+.fpc-widget-front > p {
+  line-height: 1.3em;
+  margin: 0 10px;
+}
+
+.fpc-widget-front > p > a {
+  padding: 0px!important;
+  display: inline!important;
+  line-height: 1em!important;
+  color: inherit!important;
+}
+
+/*hover effect*/
+.fpc-widget-front .thumb-wrapper {
+  width: 269px;
+  max-width: 100%;
+  height: 250px;
+  position: relative;
+  left: -1px;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  margin: auto!important;
+}
+
+.fpc-widget-front .thumb-wrapper img {
+  min-height: 250px;
+  z-index: 90;
+}
+
+.fpc-widget-front .thumb-wrapper.no-effect img {
+  min-height: initial;
+}
+.fpc-widget-front .thumb-wrapper.tc-holder {
+  display:none\9; /* IE 8 and below */
+}
+
+.fpc-widget-front .round-div {
+  display: block;
+  background: rgba(0, 0, 0, 0)!important;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  padding: 0px!important;
+  /*z-index: 99;*/
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 500px;
+  border-radius: 900px;
+  border: 104px solid #fff;
+  border-image: none;
+  box-sizing: content-box;
+  top: -66px;
+  left: -54px;
+}
+
+.round-div:before,
+.round-div:after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+
+.fpc-widget-front.hover .round-div, article.hover .round-div {
+	-webkit-transform: scale(1.4);
+	-moz-transform: scale(1.4);
+	-ms-transform: scale(1.4);
+	-o-transform: scale(1.4);
+	transform: scale(1.4);
+}
+
+.round-div.no-effect {
+  border:none;
+}
+
+.no-cssanimations .round-div {
+  border: 0px;
+}
+.no-cssanimations .thumb-wrapper {
+  opacity: 0.7;
+}
+.no-cssanimations .thumb-wrapper:hover {
+  opacity: 1;
+}
+.fpc-widget-front.hover .round-div {
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  -o-transform: scale(1.4);
+  transform: scale(1.4);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* edit link 
+*****************************/
+.fpc-container .fpc-edit-link {
+  position: absolute;
+  top: 3px;
+  right: 12px;
+  z-index: 100;
+}
+.fpc-container .fpc-btn {
+  display: inline-block!important;
+  padding: 1px 5px!important;
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 20px!important;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  background-color: #F5F5F5;
+  background-image: -moz-linear-gradient(top, white, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#E6E6E6));
+  background-image: -webkit-linear-gradient(top, #FFF, #E6E6E6);
+  background-image: -o-linear-gradient(top, white, #e6e6e6);
+  background-image: linear-gradient(to bottom, #FFF, #E6E6E6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff' , endColorstr='#ffe6e6e6' , GradientType=0);
+  border-color: #E6E6E6 #E6E6E6 #C0C0C0;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #CCC;
+  border-bottom-color: #B3B3B3;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.fpc-container .fpc-btn-inverse {
+  color: #FFF;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #363636;
+  background-image: -moz-linear-gradient(top, #444444, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444), to(#222));
+  background-image: -webkit-linear-gradient(top, #444, #222);
+  background-image: -o-linear-gradient(top, #444444, #222222);
+  background-image: linear-gradient(to bottom, #444, #222);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444' , endColorstr='#ff222222' , GradientType=0);
+  border-color: #222 #222 #000;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.fpc-container .fpc-btn-inverse:hover, .fpc-container .fpc-btn-inverse:focus, .fpc-container .fpc-btn-inverse:active, .fpc-container .fpc-btn-inverse.active {
+  color: #FFF;
+  background-color: #222;
+}
+
+
+
+.fpc-widget-front .fpc-btn {
+  display: inline-block!important;
+  *display: inline!important;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  padding: 4px 12px!important;
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 20px!important;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  background-color: whitesmoke;
+  background-image: -moz-linear-gradient(top, white, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, white, #e6e6e6);
+  background-image: -o-linear-gradient(top, white, #e6e6e6);
+  background-image: linear-gradient(to bottom, white, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff' , endColorstr='#ffe6e6e6' , GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 silver;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e6e6e6;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #cccccc;
+  *border: 0;
+  border-bottom-color: #b3b3b3;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+}
+.fpc-widget-front .fpc-btn:hover,
+.fpc-widget-front .fpc-btn:focus,
+.fpc-widget-front .fpc-btn:active,
+.fpc-widget-front .fpc-btn.active,
+.fpc-widget-front .fpc-btn.disabled,
+.fpc-widget-front .fpc-btn[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+.fpc-widget-front .fpc-btn:active,
+.fpc-widget-front .fpc-btn.active {
+  background-color: #cccccc \9;
+}
+.fpc-widget-front .fpc-btn:hover,
+.fpc-widget-front .fpc-btn:focus,
+.fpc-widget-front .fpc-btn:active,
+.fpc-widget-front .fpc-btn.active,
+.fpc-widget-front .fpc-btn.disabled,
+.fpc-widget-front .fpc-btn[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+.fpc-widget-front .fpc-btn:active,
+.fpc-widget-front .fpc-btn.active {
+  background-color: #cccccc \9;
+}
+.fpc-widget-front .fpc-btn:first-child {
+  *margin-left: 0;
+}
+.fpc-widget-front .fpc-btn:first-child {
+  *margin-left: 0;
+}
+.fpc-widget-front .fpc-btn:hover,
+.fpc-widget-front .fpc-btn:focus {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.fpc-widget-front .fpc-btn:focus {
+  outline: thin dotted #333333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.fpc-widget-front .fpc-btn.active,
+.fpc-widget-front .fpc-btn:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+
+
+
+
+.fpc-widget-front .fpc-btn-primary.green {
+	color: #FFF!important;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #8DA65A;
+	background-image: -moz-linear-gradient(top, #9db668, #768d44);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9DB668), to(#768D44));
+	background-image: -webkit-linear-gradient(top, #9DB668, #768D44);
+	background-image: -o-linear-gradient(top, #9db668, #768d44);
+	background-image: linear-gradient(to bottom, #9DB668, #768D44);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9db668' , endColorstr='#ff768d44' , GradientType=0);
+	border-color: #768D44 #768D44 #4B5A2B;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+.fpc-widget-front .fpc-btn-primary.green:hover,
+.fpc-widget-front .fpc-btn-primary.green:focus,
+.fpc-widget-front .fpc-btn-primary.green:active,
+.fpc-widget-front .fpc-btn-primary.green.active,
+.fpc-widget-front .fpc-btn-primary.green.disabled,
+.fpc-widget-front .fpc-btn-primary.green[disabled] {
+  color: white;
+  background-color: #768d44;
+  *background-color: #687c3c;
+}
+.fpc-widget-front .fpc-btn-primary.green:active,
+.fpc-widget-front .fpc-btn-primary.green.active {
+  background-color: #596b34 \9;
+}
+
+
+.fpc-widget-front .fpc-btn-primary.blue {
+  color: #FFF!important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #0074ad;
+  background-image: -moz-linear-gradient(top, #0088cc, #005580);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#005580));
+  background-image: -webkit-linear-gradient(top, #0088cc, #005580);
+  background-image: -o-linear-gradient(top, #0088cc, #005580);
+  background-image: linear-gradient(to bottom, #0088cc, #005580);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc' , endColorstr='#ff005580' , GradientType=0);
+  border-color: #005580 #005580 #002233;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #005580;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.fpc-widget-front .fpc-btn-primary.blue:hover,
+.fpc-widget-front .fpc-btn-primary.blue:focus,
+.fpc-widget-front .fpc-btn-primary.blue:active,
+.fpc-widget-front .fpc-btn-primary.blue.active,
+.fpc-widget-front .fpc-btn-primary.blue.disabled,
+.fpc-widget-front .fpc-btn-primary.blue[disabled] {
+  color: white;
+  background-color: #005580;
+  *background-color: #004466;
+}
+.fpc-widget-front .fpc-btn-primary.blue:active,
+.fpc-widget-front .fpc-btn-primary.blue.active {
+  background-color: #00334d \9;
+}
+
+
+
+.fpc-widget-front .fpc-btn-primary.black {
+  color: #FFF!important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: black;
+  background-image: -moz-linear-gradient(top, black, black);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(black), to(black));
+  background-image: -webkit-linear-gradient(top, black, black);
+  background-image: -o-linear-gradient(top, black, black);
+  background-image: linear-gradient(to bottom, black, black);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff000000' , endColorstr='#ff000000' , GradientType=0);
+  border-color: black black black;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: black;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.fpc-widget-front .fpc-btn-primary.black:hover,
+.fpc-widget-front .fpc-btn-primary.black:focus,
+.fpc-widget-front .fpc-btn-primary.black:active,
+.fpc-widget-front .fpc-btn-primary.black.active,
+.fpc-widget-front .fpc-btn-primary.black.disabled,
+.fpc-widget-front .fpc-btn-primary.black[disabled] {
+  color: white;
+  background-color: black;
+  *background-color: black;
+}
+.fpc-widget-front .fpc-btn-primary.black:active,
+.fpc-widget-front .fpc-btn-primary.black.active {
+  background-color: black \9;
+}
+
+
+
+.fpc-widget-front .fpc-btn-primary.grey {
+  color: #FFF!important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #4b4b4b;
+  background-image: -moz-linear-gradient(top, #5a5a5a, #343434);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5a5a5a), to(#343434));
+  background-image: -webkit-linear-gradient(top, #5a5a5a, #343434);
+  background-image: -o-linear-gradient(top, #5a5a5a, #343434);
+  background-image: linear-gradient(to bottom, #5a5a5a, #343434);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5a5a5a' , endColorstr='#ff343434' , GradientType=0);
+  border-color: #343434 #343434 #0e0e0e;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #343434;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.fpc-widget-front .fpc-btn-primary.grey:hover,
+.fpc-widget-front .fpc-btn-primary.grey:focus,
+.fpc-widget-front .fpc-btn-primary.grey:active,
+.fpc-widget-front .fpc-btn-primary.grey.active,
+.fpc-widget-front .fpc-btn-primary.grey.disabled,
+.fpc-widget-front .fpc-btn-primary.grey[disabled] {
+  color: white;
+  background-color: #343434;
+  *background-color: #272727;
+}
+.fpc-widget-front .fpc-btn-primary.grey:active,
+.fpc-widget-front .fpc-btn-primary.grey.active {
+  background-color: #1a1a1a \9;
+}
+
+.fpc-widget-front .fpc-btn-primary.orange {
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #ee7c2a;
+  background-image: -moz-linear-gradient(top, #f78c40, #e16309);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f78c40), to(#e16309));
+  background-image: -webkit-linear-gradient(top, #f78c40, #e16309);
+  background-image: -o-linear-gradient(top, #f78c40, #e16309);
+  background-image: linear-gradient(to bottom, #f78c40, #e16309);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff78c40' , endColorstr='#ffe16309' , GradientType=0);
+  border-color: #e16309 #e16309 #984306;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e16309;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.fpc-widget-front .fpc-btn-primary.orange:hover,
+.fpc-widget-front .fpc-btn-primary.orange:focus,
+.fpc-widget-front .fpc-btn-primary.orange:active,
+.fpc-widget-front .fpc-btn-primary.orange.active,
+.fpc-widget-front .fpc-btn-primary.orange.disabled,
+.fpc-widget-front .fpc-btn-primary.orange[disabled] {
+  color: white;
+  background-color: #e16309;
+  *background-color: #c95808;
+}
+.fpc-widget-front .fpc-btn-primary.orange:active,
+.fpc-widget-front .fpc-btn-primary.orange.active {
+  background-color: #b04d07 \9;
+}
+
+
+.fpc-widget-front .fpc-btn-primary.purple {
+  color: #FFF!important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #e165ab;
+  background-image: -moz-linear-gradient(top, #e67fb9, #da3f96);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e67fb9), to(#da3f96));
+  background-image: -webkit-linear-gradient(top, #e67fb9, #da3f96);
+  background-image: -o-linear-gradient(top, #e67fb9, #da3f96);
+  background-image: linear-gradient(to bottom, #e67fb9, #da3f96);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe67fb9' , endColorstr='#ffda3f96' , GradientType=0);
+  border-color: #da3f96 #da3f96 #ab216f;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #da3f96;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.fpc-widget-front .fpc-btn-primary.purple:hover,
+.fpc-widget-front .fpc-btn-primary.purple:focus,
+.fpc-widget-front .fpc-btn-primary.purple:active,
+.fpc-widget-front .fpc-btn-primary.purple.active,
+.fpc-widget-front .fpc-btn-primary.purple.disabled,
+.fpc-widget-front .fpc-btn-primary.purple[disabled] {
+  color: white;
+  background-color: #da3f96;
+  *background-color: #d52a8a;
+}
+.fpc-widget-front .fpc-btn-primary.purple:active,
+.fpc-widget-front .fpc-btn-primary.purple.active {
+  background-color: #c0257c \9;
+}
+
+
+.fpc-widget-front .fpc-btn-primary.red {
+  color: #FFF!important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #c30606;
+  background-image: -moz-linear-gradient(top, #e10707, #970505);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e10707), to(#970505));
+  background-image: -webkit-linear-gradient(top, #e10707, #970505);
+  background-image: -o-linear-gradient(top, #e10707, #970505);
+  background-image: linear-gradient(to bottom, #e10707, #970505);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe10707' , endColorstr='#ff970505' , GradientType=0);
+  border-color: #970505 #970505 #4d0202;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #970505;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.fpc-widget-front .fpc-btn-primary.red:hover,
+.fpc-widget-front .fpc-btn-primary.red:focus,
+.fpc-widget-front .fpc-btn-primary.red:active,
+.fpc-widget-front .fpc-btn-primary.red.active,
+.fpc-widget-front .fpc-btn-primary.red.disabled,
+.fpc-widget-front .fpc-btn-primary.red[disabled] {
+  color: white;
+  background-color: #970505;
+  *background-color: #7e0404;
+}
+.fpc-widget-front .fpc-btn-primary.red:active,
+.fpc-widget-front .fpc-btn-primary.red.active {
+  background-color: #650303 \9;
+}
+
+
+
+.fpc-widget-front .fpc-btn-primary.yellow {
+  color: #FFF!important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #d2961d;
+  background-image: -moz-linear-gradient(top, #e9a825, #b07b12);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e9a825), to(#b07b12));
+  background-image: -webkit-linear-gradient(top, #e9a825, #b07b12);
+  background-image: -o-linear-gradient(top, #e9a825, #b07b12);
+  background-image: linear-gradient(to bottom, #e9a825, #b07b12);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe9a825' , endColorstr='#ffb07b12' , GradientType=0);
+  border-color: #b07b12 #b07b12 #6a4b0b;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #b07b12;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.fpc-widget-front .fpc-btn-primary.yellow:hover,
+.fpc-widget-front .fpc-btn-primary.yellow:focus,
+.fpc-widget-front .fpc-btn-primary.yellow:active,
+.fpc-widget-front .fpc-btn-primary.yellow.active,
+.fpc-widget-front .fpc-btn-primary.yellow.disabled,
+.fpc-widget-front .fpc-btn-primary.yellow[disabled] {
+  color: white;
+  background-color: #b07b12;
+  *background-color: #996b0f;
+}
+.fpc-widget-front .fpc-btn-primary.yellow:active,
+.fpc-widget-front .fpc-btn-primary.yellow.active {
+  background-color: #815b0d \9;
+}
+
+
+
+/* OTHER STYLING */
+.fpc-row-fluid.fpc-widget-area:first-child {
+	margin-top: 0px;
+}
+.fpc-row-fluid.fpc-widget-area {
+	margin-top: 23px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+	.fpc-row-fluid [class*="fpc-span"] {
+	    display: block;
+	    width: 100%;
+	    min-height: 30px;
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    float: left;
+	    margin-left: 2.564102564%;
+	    *margin-left: 2.510911075%;
+	}
+
+	.fpc-row-fluid .fpc-span4 {
+	    width: 31.623931624%;
+	    *width: 31.570740135%;
+	 }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	.fpc-row-fluid [class*="fpc-span"] {
+	    display: block;
+	    width: 100%;
+	    min-height: 30px;
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    float: left;
+	    margin-left: 2.762430939%;
+	    *margin-left: 2.70923945%;
+	  }
+
+	.fpc-row-fluid .fpc-span4 {
+	    width: 31.491712707%;
+	    *width: 31.438521218%;
+	}
+
+	/*.fpc-widget-front .thumb-wrapper {
+		height: 250px;
+		width: 201px;
+		max-width: none;
+	}*/
+
+}
+
+@media (max-width: 767px) {
+	 .fpc-row-fluid [class*="fpc-span"] {
+	    float: none;
+	    display: block;
+	    width: 100%;
+	    margin-left: 0;
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+
+}
