@@ -24,12 +24,42 @@ class TC_controls_fpc extends WP_Customize_Control	{
     public $min;
 
     public function render_content()  {
+    	$plug_option_prefix     = TC_fpc::$instance -> plug_option_prefix;
+    	$lang 					= TC_fpc::$instance -> plug_lang;
+    	$setting 				= str_replace( array('data-customize-setting-link=', $plug_option_prefix, '"' , "[" , "]" ) , '', $this -> get_link() );
+    	
+    	$titles 				= array(
+    		'tc_fp_position' 		=> __( 'Location' , $lang ),
+    		'tc_fp_background' 		=> __( 'Main colors', $lang ),
+    		'tc_show_fp_img' 		=> __( 'Thumbnails' , $lang ),
+    		'tc_show_fp_title' 		=> __( 'Title and excerpt' , $lang ),
+    		'tc_show_fp_button' 	=> __( 'Buttons' , $lang ),
+    		'tc_featured_page_one' 	=> __( 'Featured pages selection' , $lang ),
+    	);
+
+    	if ( isset($titles[$setting]) ) {
+    		printf('<h3 class="fpc-section-title">&middot; %1$s &middot;</h3>',
+    			$titles[$setting]
+    		);
+    	}
+
         switch ( $this -> type) {
         	case 'hr':
         		echo '<hr class="tc-customizer-separator" />';
         		break;
 
-        	
+        	case 'text':
+				?>
+				<label>
+					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+					<input type="text" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> />
+				</label>
+				<?php if (isset( $this->notice)) : ?>
+					<span class="tc-notice"><?php echo esc_html( $this-> notice ) ?></span>
+				<?php endif; ?>
+				<?php
+				break;
+
         	case 'title' :
         		?>
 
@@ -60,7 +90,7 @@ class TC_controls_fpc extends WP_Customize_Control	{
 					<h3 class="tc-customizr-title"><?php echo esc_html( $this->title); ?></h3>
 				<?php endif; ?>
 				<?php if (isset( $this->notice)) : ?>
-					<i class="tc-notice"><?php echo esc_html( $this-> notice ) ?></i>
+					<span class="tc-notice"><?php echo esc_html( $this-> notice ) ?></span>
 				<?php endif; ?>
 				<label>
 					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -91,7 +121,7 @@ class TC_controls_fpc extends WP_Customize_Control	{
 			?>
 				<div class="tc-check-label">
 					<label>	
-						<span class="tc-number-label customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+						<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 					</label>
 				</div>
 				<input type="checkbox" class="iphonecheck" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); checked( $this->value() ); ?> />
@@ -122,6 +152,40 @@ class TC_controls_fpc extends WP_Customize_Control	{
 				<?php
 	        	break;
 
+	        case 'dropdown-pages':
+        		//retrieve post, pages and custom post types (if any) and generate the ordered select list for the button link
+		        $post_types     = get_post_types(array( 'public' => true));
+		        $excludes       = array( 'attachment' );
+		        $tc_all_posts  	= array();
+		        
+	            $tc_all_posts['page'] = get_posts(  array(
+	                'numberposts'     =>  1000,
+	                'orderby'         =>  'date' ,
+	                'order'           =>  'DESC' ,
+	                'post_type'       =>  'page',
+	                'post_status'     =>  'publish' )
+	            );
+
+		          ?>
+			         <label>
+						<span class="customize-control-title"><?php echo esc_html( $this->label );?></span>
+				          <select <?php echo $this->link() ?>>
+			                <?php //no link option ?>
+			                <option value="0" <?php selected( $this->value(), 0, $echo = true ) ?>> &#45; Select &#45; </option>
+			                
+			                <?php foreach( $tc_all_posts as $type) : ?>
+			                    <?php foreach ( $type as $key => $item) : ?>
+
+			                  		<option value="<?php echo $item -> ID; ?>" <?php selected( $this->value(), $item -> ID, $echo = true ) ?>><?php echo esc_attr( $item -> post_title); ?></option>
+
+			                    <?php endforeach; ?>
+			               <?php endforeach; ?>
+
+			              </select>
+					</label>
+		          <?php
+        	break;
+
         	default:
         		screen_icon( $this -> type );
         		break;
@@ -140,6 +204,25 @@ class TC_Color_Control extends WP_Customize_Color_Control	{
 	 *
 	 */
 	public function render_content() {
+		$plug_option_prefix     = TC_fpc::$instance -> plug_option_prefix;
+    	$lang 					= TC_fpc::$instance -> plug_lang;
+    	$setting 				= str_replace( array('data-customize-setting-link=', $plug_option_prefix, '"' , "[" , "]" ) , '', $this -> get_link() );
+    	
+    	$titles 				= array(
+    		'tc_fp_position' 		=> __( 'Location' , $lang ),
+    		'tc_fp_background' 		=> __( 'Main colors', $lang ),
+    		'tc_show_fp_img' 		=> __( 'Thumbnails' , $lang ),
+    		'tc_show_fp_title' 		=> __( 'Titles and excerpts' , $lang ),
+    		'tc_show_fp_button' 	=> __( 'Buttons' , $lang ),
+    		'tc_featured_page_one' 	=> __( 'Featured pages selection' , $lang ),
+    	);
+
+    	if ( isset($titles[$setting]) ) {
+    		printf('<h3 class="fpc-section-title">&middot; %1$s &middot;</h3>',
+    			$titles[$setting]
+    		);
+    	}
+
 		$this_default = $this->setting->default;
 		$default_attr = '';
 		if ( $this_default ) {

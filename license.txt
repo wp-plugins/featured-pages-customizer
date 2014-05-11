@@ -1,4 +1,4 @@
-Themes and Co Featured Pages Customizer plugin, copyright (C) 2013 Nicolas GUILLAUME
+Themes and Co Featured Pages Customizer plugin, copyright (C) 2014 Nicolas GUILLAUME
         Licensed under the GNU GPL License below
 
 

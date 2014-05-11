@@ -28,7 +28,7 @@ class TC_back_fpc {
 
 
     function tc_plugin_action_links( $links, $file ) {
-		if ( $file == plugin_basename( dirname( dirname( dirname(__FILE__) ) ).'/featured-pages-customizer.php' ) ) {
+		if ( $file == plugin_basename( dirname( dirname( dirname(__FILE__) ) ). '/' . basename( TC_fpc::$instance -> plug_file ) ) ) {
 			$links[] = '<a href="' . admin_url( 'customize.php' ) . '">'.__( 'Settings' ).'</a>';
 		}
 		return $links;
@@ -61,6 +61,7 @@ class TC_back_fpc {
 				),
 				'controls' => array(
 							'title' ,
+							'text' ,
 							'label' ,
 							'section' ,
 							'settings' ,
@@ -75,8 +76,7 @@ class TC_back_fpc {
 							'min' ,//number specific
 							'range-input' ,
 							'max',
-							'cssid',
-							'slider_default',
+							'dropdown-pages'
 				)
 		);
 		return apply_filters( 'fpc_customizer_arguments', $args );
@@ -173,9 +173,11 @@ class TC_back_fpc {
 	 *  Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
 	 */
 	function tc_customize_preview_js() {
+		$plug_option_prefix     = TC_fpc::$instance -> plug_option_prefix;
+
 		wp_enqueue_script( 
 			'tc-fpc-preview' ,
-			plugins_url( 'featured-pages-customizer/back/assets/js/fpc-customizer-preview.js' ),
+			plugins_url( TC_FPC_DIR_NAME . '/back/assets/js/fpc-customizer-preview.min.js' ),
 			array( 'customize-preview' ),
 			'20120827' ,
 			true );
@@ -203,7 +205,7 @@ class TC_back_fpc {
 
 		wp_register_style( 
 			'tc-fpc-controls-style' ,
-			plugins_url( 'featured-pages-customizer/back/assets/css/fpc-customizer-control.css' ),
+			plugins_url( TC_FPC_DIR_NAME . '/back/assets/css/fpc-customizer-control.css' ),
 			array( 'customize-controls' ),
 			null,
 			$media = 'all'
@@ -212,7 +214,7 @@ class TC_back_fpc {
 
 		wp_enqueue_script( 
 			'tc-fpc-controls' ,
-			plugins_url( 'featured-pages-customizer/back/assets/js/fpc-customizer-control.js' ),
+			plugins_url( TC_FPC_DIR_NAME . '/back/assets/js/fpc-customizer-control.min.js' ),
 			array( 'customize-controls' ),
 			null ,
 			true
@@ -221,23 +223,30 @@ class TC_back_fpc {
 		//gets the featured pages id from init
 		$fp_ids				= apply_filters( 'fpc_featured_pages_ids' , TC_fpc::$instance -> fpc_ids);
 
-		//declares the common fp control fields and the dynamic arrays
-		$fp_controls 			= array(
-			"{$plug_option_prefix}[tc_fp_position]",
-			"{$plug_option_prefix}[tc_show_featured_pages_img]",
-			"{$plug_option_prefix}[tc_featured_page_button_text]",
-			"{$plug_option_prefix}[tc_featured_page_button_color]",
-			"{$plug_option_prefix}[tc_featured_page_background]",
-			"{$plug_option_prefix}[tc_featured_page_text_color]"
-		);
-		$page_dropdowns 		= array();
+		//declares the controls dependencies
+		$tc_show_fp 		= array();
+		foreach (TC_utils_fpc::$instance -> default_options as $key => $value) {
+			if ( 'tc_show_fp' == $key )
+				continue;
+			$tc_show_fp[] = "{$plug_option_prefix}[{$key}]";
+		}
+		$tc_show_excerpt 		= array("{$plug_option_prefix}[tc_fp_text_limit]");
+		foreach (TC_utils_fpc::$instance -> default_options as $key => $value) {
+			if ( false == strpos( $key, 'tc_featured_text_') )
+				continue;
+			$tc_show_excerpt[] 	= "{$plug_option_prefix}[{$key}]";
+		}
+		$tc_show_button 		= array( "{$plug_option_prefix}[tc_fp_button_text]" , "{$plug_option_prefix}[tc_fp_button_color]" , "{$plug_option_prefix}[tc_fp_button_text_color]");
+
+
+		/*$page_dropdowns 		= array();
 		$text_fields			= array();
 
 		//adds filtered page dropdown fields
 		foreach ( $fp_ids as $id ) {
 			$page_dropdowns[] 	= "{$plug_option_prefix}[tc_featured_page_{$id}]";
 			$text_fields[]		= "{$plug_option_prefix}[tc_featured_text_{$id}]";
-		}
+		}*/
 
 		//localizes
 		wp_localize_script( 
@@ -245,8 +254,10 @@ class TC_back_fpc {
 	        'TCFPCControlParams',
 	        apply_filters('tc_fpc_js_control_params' ,
 		        array(
-		        	'OptionPrefix' 	=> $plug_option_prefix,
-		        	'FPControls' 	=> array_merge( $fp_controls , $page_dropdowns , $text_fields )
+		        	'OptionPrefix' 		=> $plug_option_prefix,
+		        	'ShowFP' 			=> $tc_show_fp,
+		        	'ShowExcerpt' 		=> $tc_show_excerpt,
+		        	'ShowButton' 		=> $tc_show_button,
 		        )
 		    )
         );
@@ -279,10 +290,5 @@ class TC_back_fpc {
 
       return $fonts_url;
     }
-
-
-	
-
-
 
 }//end of class

@@ -1,4 +1,36 @@
-/*.control-section .accordion-section-title {
+#accordion-section-tc_fpc > ul.accordion-section-content {
+	min-height: 146px;
+}
+
+/*#accordion-section-tc_fpc > ul > li:nth-child(2) {
+	margin-top: 0px;
+}
+*/
+#accordion-section-tc_fpc .customize-control {
+	margin-bottom: 10px;
+}
+
+.tc-notice {
+	float: left;
+}
+.tc-check-label {
+	float: left;
+	width: 85%;
+}
+#accordion-section-tc_fpc .fpc-section-title {
+	/*font-family: "lobster two" ,"sans-serif";*/
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 21px;
+	line-height: 23px;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	padding: 8px;
+	color: #000;
+	font-weight: normal
+}
+
+.control-section .accordion-section-title {
 	padding: 6px 20px!important;
 }
 .control-section .accordion-section-title:after {
@@ -84,26 +116,10 @@ input.iphonecheck {
 }
 .tc-font-select {
 	float: left;
-}*/
-#accordion-section-tc_fpc > ul.accordion-section-content {
-	min-height: 146px;
 }
 
-#accordion-section-tc_fpc > ul > li:nth-child(2) {
-	margin-top: 0px;
-}
 
-#accordion-section-tc_fpc > ul > li {
-	margin-top: 15px;
-}
 
-.tc-notice {
-	float: left;
-}
-.tc-check-label {
-	float: left;
-	width: 50%;
-}
 
 /* 
  * Selecter v3.0.9 - 2014-02-10 
@@ -112,16 +128,7 @@ input.iphonecheck {
  * 
  * Copyright 2014 Ben Plum; MIT Licensed 
  */ 
-/* SPECIFICS */
-/*.tc-select-subset .selecter {
-  width: 176px;
-}
-.tc-select-subset .selecter .selecter-selected {
-  background-position: 155px center;
-}
-.tc-select-subset .selecter .selecter-item {
-  width: 80%;
-}*/
+
 
 .selecter-element { *left: -999999px; position: absolute; opacity: 0; }
 .selecter { display: block;float: right;margin: 2px 0;position: relative;width: 100%;z-index: 100; }
