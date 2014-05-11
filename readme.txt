@@ -1,4 +1,6 @@
 === Featured Pages Customizer ===
+Author URI: http://www.themesandco.com
+Plugin URI: http://www.themesandco.com
 Contributors : nikeo
 Donate link: http://www.themesandco.com#footer
 Tags: pages, customizer, home, wordpress, front page, featured content, featured
@@ -8,7 +10,7 @@ Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Feature your content live from the WordPress customizer.
+Feature your content live with the WordPress customizer.
 
 == Description ==
 
