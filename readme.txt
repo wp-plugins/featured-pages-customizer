@@ -16,8 +16,10 @@ Feature your content live with the WordPress customizer.
 
 The Featured Pages Customizer is a **simple and powerful solution to engage your visitors on your most visited page : home**. The plugin allows you to select the most important pages of your website, and beautifully feature them on home.
 
-= Plugin Features =
+=  Plugin Features =
+
 All settings are done from the WordPress customizer in live preview, which makes it easy as breeze :
+
 * **Fully responsive with any devices
 * **Cross Browser Compatible** (Tested in all major browsers).
 * **Live preview is integrated into the WordPress Customizer with a beautiful user interface
