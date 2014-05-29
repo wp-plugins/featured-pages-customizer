@@ -62,6 +62,9 @@ For those who need to go further, an advanced version of the plugin called [Feat
 
 
 == Changelog ==
+= 1.3 : May 29th, 2014 =
+* fixed : (css) added z-index:0 to the .fpc-container selector
+
 = 1.2 : May 29th, 2014 =
 * added : (json) compatibility with the genesis framework
 

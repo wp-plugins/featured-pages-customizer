@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Featured Pages Customizer
  * Description: Design a beautiful home page with featured pages, right from the WordPress customizer.
- * Version: 1.2
+ * Version: 1.3
  * Author: nikeo
  * Author URI: http://www.themesandco.com
  * License: GPLv2 or later
@@ -53,7 +53,7 @@ class TC_fpc {
         if( ! defined( 'TC_FPC_DIR_NAME' ) )      { define( 'TC_FPC_DIR_NAME' , basename( dirname( __FILE__ ) ) ); }
 
         $this -> plug_file              = __FILE__; //main plugin root file.
-        $this -> plug_version           = '1.2';
+        $this -> plug_version           = '1.3';
         $this -> plug_lang              = 'tc_fpc';
 
          //gets the theme name (or parent if child)

@@ -5,7 +5,8 @@
   margin-left: auto!important;
   *zoom: 1;
   clear: both;
-  position: relative
+  position: relative;
+  z-index: 0;
 }
 .fpc-container:after,.fpc-container:before {
   display: table;
