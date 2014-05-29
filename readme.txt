@@ -20,9 +20,9 @@ The Featured Pages Customizer is a **simple and powerful solution to engage your
 
 All settings are done from the WordPress customizer in live preview, which makes it easy as breeze :
 
-* **Fully responsive with any devices**
-* **Cross Browser Compatible** (Tested in all major browsers).**
-* **Live preview is integrated into the WordPress Customizer with a beautiful user interface**
+* **Fully responsive with any devices
+* **Cross Browser Compatible** (Tested in all major browsers).
+* **Live preview is integrated into the WordPress Customizer with a beautiful user interface
 * Select any page to feature
 * Customize the location of the featured pages **pre-made locations for many popular themes**
 * Display or hide the page's featured images
@@ -33,11 +33,11 @@ All settings are done from the WordPress customizer in live preview, which makes
 
 The Featured Pages Customizer is **compatible with any WordPress theme**.
 
-= Developer friendly =
+= For Developers =
 This plugin offers a **modular structure based on a comprehensive hook’s API** [(learn more about WordPress filters and actions)](http://codex.wordpress.org/Plugin_API). It uses the **bests WordPress coding standards which makes customizations easy as breeze**, without ever needing to modify the core structure.
 Many examples of ready to paste [code snippets for the Featured Pages Customizer WordPress plugin](http://www.themesandco.com/snippet-target/featured-pages/).
 
-= Advanced Features =
+= Pro Features =
 For those who need to go further, an advanced version of the plugin called [Featured Pages Unlimited](http://www.themesandco.com/extension/featured-pages-unlimited/) is available, also released under GNU/GPLv2+.
 
 
@@ -62,6 +62,8 @@ For those who need to go further, an advanced version of the plugin called [Feat
 
 
 == Changelog ==
+= 1.2 : May 29th, 2014 =
+* added : (json) compatibility with the genesis framework
 
 = 1.1 : May 11, 2014 =
 * improved : (css, js) add !important to background-color and border-color
