@@ -1,7 +1,7 @@
 ﻿=== Featured Pages Customizer ===
 Author URI: http://www.themesandco.com
 Plugin URI: http://www.themesandco.com
-Contributors : nikeo
+Contributors: nikeo
 Donate link: http://www.themesandco.com#footer
 Tags: pages, customizer, home, wordpress, front page, featured content, featured
 Requires at least: 3.4
@@ -20,9 +20,9 @@ The Featured Pages Customizer is a **simple and powerful solution to engage your
 
 All settings are done from the WordPress customizer in live preview, which makes it easy as breeze :
 
-* **Fully responsive with any devices
+* **Fully responsive with any devices**
 * **Cross Browser Compatible** (Tested in all major browsers).
-* **Live preview is integrated into the WordPress Customizer with a beautiful user interface
+* **Live preview is integrated into the WordPress Customizer with a beautiful user interface**
 * Select any page to feature
 * Customize the location of the featured pages **pre-made locations for many popular themes**
 * Display or hide the page's featured images
