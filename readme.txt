@@ -1,4 +1,4 @@
-﻿=== Featured Pages Customizer ===
+=== Featured Pages Customizer ===
 Author URI: http://presscustomizr.com
 Plugin URI: http://presscustomizr.com
 Contributors : nikeo
@@ -6,7 +6,7 @@ Donate link: http://presscustomizr.com#footer
 Tags: pages, customizer, home, wordpress, front page, featured content, featured
 Requires at least: 3.4
 Tested up to: 4.1.1
-Stable tag: 1.4
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
