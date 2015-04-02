@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Featured Pages Customizer
  * Description: Design a beautiful home page with featured pages, right from the WordPress customizer.
- * Version: 1.4.1
+ * Version: 1.4.2
  * Author: nikeo
  * Author URI: http://presscustomizr.com
  * License: GPLv2 or later

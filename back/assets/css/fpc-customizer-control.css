@@ -119,6 +119,8 @@ input.iphonecheck {
   user-select: none;
   float: left;
   clear: both;
+  margin-bottom: 11px;
+  width: 100%;
 }
 
 .tc-cta .tc-cta-btn:hover {
@@ -127,10 +129,10 @@ input.iphonecheck {
 }
 
 .tc-cta .tc-cta-btn {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   margin-top: 2px;
-  padding: 4px 14px;
+  padding: 4px 7px;
   background: #27CDA5;
   display: inline-block;
   color: #FFF;

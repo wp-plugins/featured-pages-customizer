@@ -6,7 +6,7 @@ Donate link: http://presscustomizr.com#footer
 Tags: pages, customizer, home, wordpress, front page, featured content, featured
 Requires at least: 3.4
 Tested up to: 4.1.1
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,9 @@ For those who need to go further, an advanced version of the plugin called [Feat
 
 
 == Changelog ==
+= 1.4.2 : April 3rd, 2015 =
+* fix : minor customizer style issue
+
 = 1.4.1 : April 3rd, 2015 =
 * Add : button in the customizer
 * Fix: amend wrong change transport callback
