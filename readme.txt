@@ -1,12 +1,12 @@
 ﻿=== Featured Pages Customizer ===
-Author URI: http://www.themesandco.com
-Plugin URI: http://www.themesandco.com
-Contributors: nikeo
-Donate link: http://www.themesandco.com#footer
+Author URI: http://presscustomizr.com
+Plugin URI: http://presscustomizr.com
+Contributors : nikeo
+Donate link: http://presscustomizr.com#footer
 Tags: pages, customizer, home, wordpress, front page, featured content, featured
 Requires at least: 3.4
-Tested up to: 3.9.1
-Stable tag: 1.3
+Tested up to: 4.1.1
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,9 +20,9 @@ The Featured Pages Customizer is a **simple and powerful solution to engage your
 
 All settings are done from the WordPress customizer in live preview, which makes it easy as breeze :
 
-* **Fully responsive with any devices**
+* **Fully responsive with any devices
 * **Cross Browser Compatible** (Tested in all major browsers).
-* **Live preview is integrated into the WordPress Customizer with a beautiful user interface**
+* **Live preview is integrated into the WordPress Customizer with a beautiful user interface
 * Select any page to feature
 * Customize the location of the featured pages **pre-made locations for many popular themes**
 * Display or hide the page's featured images
@@ -35,10 +35,10 @@ The Featured Pages Customizer is **compatible with any WordPress theme**.
 
 = For Developers =
 This plugin offers a **modular structure based on a comprehensive hook’s API** [(learn more about WordPress filters and actions)](http://codex.wordpress.org/Plugin_API). It uses the **bests WordPress coding standards which makes customizations easy as breeze**, without ever needing to modify the core structure.
-Many examples of ready to paste [code snippets for the Featured Pages Customizer WordPress plugin](http://www.themesandco.com/snippet-target/featured-pages/).
+Many examples of ready to paste [code snippets for the Featured Pages Customizer WordPress plugin](http://presscustomizr.com/snippet-target/featured-pages/).
 
 = Pro Features =
-For those who need to go further, an advanced version of the plugin called [Featured Pages Unlimited](http://www.themesandco.com/extension/featured-pages-unlimited/) is available, also released under GNU/GPLv2+.
+For those who need to go further, an advanced version of the plugin called [Featured Pages Unlimited](http://presscustomizr.com/extension/featured-pages-unlimited/) is available, also released under GNU/GPLv2+.
 
 
 == Installation ==
@@ -62,6 +62,43 @@ For those who need to go further, an advanced version of the plugin called [Feat
 
 
 == Changelog ==
+= 1.4.1 : April 3rd, 2015 =
+* Add : button in the customizer
+* Fix: amend wrong change transport callback
+* Fix: use more proper action hook for lang plugins comp
+* Add: polylang compatibility code
+* Add: qtranslate-X compatibility code
+* Fix: translations update
+* Improved : better admin notice message
+* Fix: use array() as dep when needed in front resources registering
+* Fix: use array() as dep when needed in front resources enqueuing
+* Fix: use constant dirname for lang path
+* Fix: italian translation typos
+* Fix: update translation catalogue and add italian translation
+* Fix: use TC_fpc is_customizing already set property
+* Fix: use text-domain prefix for translations files (add new)
+* Fix: use text-domain prefix for translations files
+* Fix: handle co-presence of fpu and fpc
+* Fix: remove unneded stepper jquery plugin
+* Fix: add non min js
+* Fix: update control js and fix preview js
+* Fix: update preview js (hide just .fp-button when required)
+* Fix: always load min scripts/styles version
+* Fix: load js plugin for any other theme
+* Fix: move controls images
+* Fix: update fpc-customizer-control.css
+* Fix: add jquery plugin css
+* Fix: class_back_fpc update step2: waiting for the enqueing min pattern
+* Fix: add jquery plugins
+* Fix: class_back_fpc update step1
+* Fix: update fpc-front(.min).css
+* Fix: enqueue ImageCenter.js, remove useless check on customiz-pro
+* Fix: update fpc-front(.min).js
+* Fix: update class_front_fpc and add jqueryCenterImage.js
+* Fix: update class_utils_fpc - nothing special
+* Fix: update config.json
+* Fix: add class_utils_thumbnails.php
+
 = 1.3 : May 29th, 2014 =
 * fixed : (css) added z-index:0 to the .fpc-container selector
 

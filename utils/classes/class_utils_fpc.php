@@ -2,13 +2,13 @@
 /**
 * Defines filters and actions used in several templates/classes
 *
-* 
+*
 * @package      FPC
 * @subpackage   classes
-* @since        3.0
-* @author       Nicolas GUILLAUME <nicolas@themesandco.com>
+* @since        1.3
+* @author       Nicolas GUILLAUME <nicolas@presscustomizr.com>
 * @copyright    Copyright (c) 2013, Nicolas GUILLAUME
-* @link         http://www.themesandco.com/
+* @link         http://presscustomizr.com/
 * @license      http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
@@ -34,29 +34,10 @@ class TC_utils_fpc {
         add_filter  ( '__is_home_empty'                     , array( $this , 'tc_is_home_empty' ) );
 
         //default options
-        $this -> is_customizing   = $this -> tc_is_customizing();
+        $this -> is_customizing   = TC_fpc::$instance -> is_customizing;
         $this -> default_options  = $this -> tc_get_default_options();
     }
 
-
-
-    /**
-    * Returns a boolean on the customizer's state
-    *
-    * @package FPC
-    * @since FPC 1.4
-    */
-    function tc_is_customizing() {
-        //checks if is customizing : two contexts, admin and front (preview frame)
-        global $pagenow;
-        $is_customizing = false;
-        if ( is_admin() && isset( $pagenow ) && 'customize.php' == $pagenow ) {
-            $is_customizing = true;
-        } else if ( ! is_admin() && isset($_REQUEST['wp_customize']) ) {
-            $is_customizing = true;
-        }
-        return $is_customizing;
-    }
 
 
 
@@ -88,7 +69,7 @@ class TC_utils_fpc {
     /**
     *
     * @package FPC
-    * @since FPC 1.4.3
+    * @since FPC 1.3
     */
     function tc_generate_default_options( $map, $option_group = null ) {
         //do we have to look in a specific group of option (plugin?)
@@ -120,7 +101,7 @@ class TC_utils_fpc {
     * Returns an option from the options array of the theme.
     *
     * @package FPC
-    * @since FPC 1.4
+    * @since FPC 1.3
     */
     function tc_fpc_get_option( $option_name , $option_group = null ) {
         //do we have to look in a specific group of option (plugin?)
@@ -147,7 +128,7 @@ class TC_utils_fpc {
             $config_raw          = @file_get_contents( dirname( dirname(__FILE__) ) ."/assets/config/config.json" );
             if ( $config_raw === false ) {
                   $config_raw = wp_remote_fopen( dirname( dirname(__FILE__) ) ."/assets/config/config.json" );
-            }   
+            }
             $config_raw     = json_decode( $config_raw , true );
             set_transient( 'tc_fpc_config' , $config_raw , 60*60*24*10 );//10 days
         } else {
@@ -177,7 +158,7 @@ class TC_utils_fpc {
             'loop_start'        =>      isset($translations['before_content']) ? $translations['before_content'] : 'before_content'
         );
         $menu_location  = 'primary';
-        
+
         if ( $config ) {
             foreach ( $config as $setting => $data ) {
                 //sets default bgcolor if exists
@@ -193,7 +174,7 @@ class TC_utils_fpc {
                     case 'textcolor':
                         $default_textcolor = $data;
                     break;
-                    
+
                     case 'hooks' :
                         foreach ( $data as $hook => $position ) {
                             if ( false !== strpos($hook, '[default]') ) {
@@ -207,7 +188,7 @@ class TC_utils_fpc {
             }//end foreach
         }//end if isset
 
-        
+
         switch ($what) {
             case 'default_bgcolor':
                 return apply_filters( 'fpc_default_bgcolor', $default_bgcolor );
@@ -216,7 +197,7 @@ class TC_utils_fpc {
             case 'default_textcolor':
                 return apply_filters( 'fpc_default_textcolor', $default_textcolor );
             break;
-            
+
             case 'default_hook':
                 return apply_filters( 'fpc_default_hook', $default_hook );
             break;
@@ -231,14 +212,14 @@ class TC_utils_fpc {
         }
     }
 
-    
+
 
     /**
     * Returns the "real" queried post ID or if !isset, get_the_ID()
     * Checks some contextual booleans
-    * 
+    *
     * @package FPC
-    * @since FPC 1.4
+    * @since FPC 1.3
     */
     function tc_get_the_ID()  {
         $queried_object   = get_queried_object();
@@ -253,7 +234,7 @@ class TC_utils_fpc {
     /**
     * Check if we are displaying posts lists or front page
     *
-    * @since FPC 1.4.6
+    * @since FPC 1.3
     *
     */
     function tc_is_home() {
@@ -261,14 +242,14 @@ class TC_utils_fpc {
       return ( (is_home() && ( 'posts' == get_option( 'show_on_front' ) || 'nothing' == get_option( 'show_on_front' ) ) ) || is_front_page() ) ? true : false;
     }
 
-    
+
 
 
 
     /**
     * Check if we show posts or page content on home page
     *
-    * @since FPC 1.4.6
+    * @since FPC 1.3
     *
     */
     function tc_is_home_empty() {
@@ -280,7 +261,7 @@ class TC_utils_fpc {
 
     /**
      * Generates the featured pages options
-     * 
+     *
      */
     function tc_generates_featured_pages() {
         $plug_option_prefix     = TC_fpc::$instance -> plug_option_prefix;
@@ -343,18 +324,18 @@ class TC_utils_fpc {
 
 
     function tc_get_button_color_list() {
-        return apply_filters( 'fpc_button_colors' , 
+        return apply_filters( 'fpc_button_colors' ,
             array(
-                'none'    =>  __( ' &#45; Select &#45; ' ,  $this -> plug_lang ),
-                'blue'    =>  __( 'Blue' , $this -> plug_lang ),
-                'green'   =>  __( 'Green' , $this -> plug_lang ),
-                'yellow'  =>  __( 'Yellow' , $this -> plug_lang ),
-                'orange'  =>  __( 'Orange' , $this -> plug_lang ),
-                'red'     =>  __( 'Red' , $this -> plug_lang ),
-                'purple'  =>  __( 'Purple' , $this -> plug_lang ),
-                'grey'    =>  __( 'Grey' , $this -> plug_lang ),
+                'none'     =>  __( ' &#45; Select &#45; ' ,  $this -> plug_lang ),
+                'blue'     =>  __( 'Blue' , $this -> plug_lang ),
+                'green'    =>  __( 'Green' , $this -> plug_lang ),
+                'yellow'   =>  __( 'Yellow' , $this -> plug_lang ),
+                'orange'   =>  __( 'Orange' , $this -> plug_lang ),
+                'red'      =>  __( 'Red' , $this -> plug_lang ),
+                'purple'   =>  __( 'Purple' , $this -> plug_lang ),
+                'grey'     =>  __( 'Grey' , $this -> plug_lang ),
                 'original' =>  __( 'Light grey' , $this -> plug_lang ),
-                'black'   =>  __( 'Black' , $this -> plug_lang )
+                'black'    =>  __( 'Black' , $this -> plug_lang )
             )
         );
     }
@@ -363,7 +344,7 @@ class TC_utils_fpc {
 
     /**
     * Defines sections, settings and function of customizer and return and array
-    * Also used to get the default options array, in this case $get_default_option = true and we DISABLE the __get_option (=>infinite loop) 
+    * Also used to get the default options array, in this case $get_default_option = true and we DISABLE the __get_option (=>infinite loop)
     */
     function tc_customizer_map( $get_default_option = false ) {
         $plug_option_prefix     = TC_fpc::$instance -> plug_option_prefix;
@@ -399,9 +380,9 @@ class TC_utils_fpc {
 
         /*-----------------------------------------------------------------------------------------------------
                                                    FEATURED PAGES SETTINGS
-        ------------------------------------------------------------------------------------------------------*/        
+        ------------------------------------------------------------------------------------------------------*/
         $fpc_option_map = array(
-                        
+
                         //Front page widget area
                         "{$plug_option_prefix}[tc_show_fp]" => array(
                                 'default'       => 1,
@@ -409,7 +390,7 @@ class TC_utils_fpc {
                                 //'title'           => __( 'Featured pages options' , $this -> plug_lang ),
                                 'label'         => __( 'Display home featured pages area' , $this -> plug_lang ),
                                 'section'       => 'tc_fpc' ,
-                                'type'          => 'select' ,   
+                                'type'          => 'select' ,
                                 'choices'       => array(
                                                 1 => __( 'Enable' , $this -> plug_lang ),
                                                 0 => __( 'Disable' , $this -> plug_lang ),
@@ -448,10 +429,19 @@ class TC_utils_fpc {
                                 'label'         => __( 'Display thumbnails' , $this -> plug_lang ),
                                 'section'       => 'tc_fpc' ,
                                 'type'          => 'checkbox' ,
-                                'notice'        => __( 'The images are set with the "featured image" of each pages. Uncheck the option above to disable the featured images.' , $this -> plug_lang ),
+                                'notice'        => __( 'The images are set with the "featured image" of each page. Uncheck the option above to disable the featured images.' , $this -> plug_lang ),
                                 'priority'      => 17,
                         ),
-
+                        "{$plug_option_prefix}[tc_center_fp_img]" => array(
+                                'default'       => 1,
+                                //'transport'     =>  'postMessage',
+                                'control'       => 'TC_controls_fpc' ,
+                                'label'         => __( 'Dynamic thumbnails centering on any devices' , $this -> plug_lang ),
+                                'section'       => 'tc_fpc' ,
+                                'type'          => 'checkbox' ,
+                                'priority'      => 18,
+                                'notice'        => __( 'This option dynamically centers your images on any devices vertically or horizontally (without stretching them) according to their initial dimensions.' , $this -> plug_lang ),
+                        ),
                         //enable/disable fp titles
                         "{$plug_option_prefix}[tc_show_fp_title]" => array(
                                 'default'       => 1,
@@ -543,7 +533,7 @@ class TC_utils_fpc {
                         ),
 
         );//end of $featured_pages_option_map
-        
+
         $fpc_option_map = array_merge( $fpc_option_map , $this -> tc_generates_featured_pages() );
         $fpc_option_map = apply_filters( 'fpc_option_map', $fpc_option_map , $get_default_option );
         $add_setting_control = array(

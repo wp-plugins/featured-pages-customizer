@@ -106,7 +106,7 @@ class TC_front_fpc {
     *
     *
     * @package FPC
-    * @since FPC 1.4
+    * @since FPC 1.3
     */
     function tc_fp_block_display() {
         $hook               = esc_attr( tc__f( '__get_fpc_option' , 'tc_fp_position' ) );
@@ -213,7 +213,7 @@ class TC_front_fpc {
             $featured_page_title            =  apply_filters( 'fpc_title', __( 'Featured page' , $this -> plug_lang ) );
             $text                           =  apply_filters( 
                                                 'fpc_text', 
-                                                sprintf( __( 'Featured page description text : use the page or post excerpt or set your own custom text in the WordPress customizer screen %s.' , $this -> plug_lang ),
+                                                sprintf( __( 'Featured page description text : use the page excerpt or set your own custom text in the WordPress customizer screen %s.' , $this -> plug_lang ),
                                                   $admin_link 
                                                 ),
                                                 $fp_single_id,
@@ -225,30 +225,51 @@ class TC_front_fpc {
           
         else {
             $featured_page_id               = apply_filters( 'fpc_id', esc_attr( tc__f( '__get_fpc_option' , 'tc_featured_page_'.$fp_single_id) ), $fp_single_id );
+
+            //get the page/post object
+            $_post                          = get_post( $featured_page_id );
+
             $featured_page_link             = apply_filters( 'fpc_link_url', get_permalink( $featured_page_id ), $fp_single_id );
             $featured_page_title            = apply_filters( 'fpc_title', get_the_title( $featured_page_id ), $fp_single_id, $featured_page_id );
+            //when are we displaying the edit link?
+            $edit_enabled                   = ( (is_user_logged_in()) && current_user_can('edit_pages') && is_page( $featured_page_id ) ) ? true : false;
+            $edit_enabled                   = ( (is_user_logged_in()) && current_user_can('edit_post' , $featured_page_id ) && ! is_page( $featured_page_id ) ) ? true : $edit_enabled;
+            $edit_enabled                   = apply_filters( 'tc_edit_in_fp_title', $edit_enabled );
+
             $featured_text                  = apply_filters( 'fpc_text', tc__f( '__get_fpc_option' , 'tc_featured_text_'.$fp_single_id ), $fp_single_id, $featured_page_id );
             $featured_text                  = apply_filters( 'fpc_text_sanitize', html_entity_decode( $featured_text ) , $fp_single_id, $featured_page_id );
 
-            //get the page/post object
-            $page                           = get_post($featured_page_id);
-              
-            //set page excerpt as default text if no $featured_text
-            $text                           = ( empty($featured_text) && !post_password_required($featured_page_id) ) ? strip_tags(apply_filters( 'the_content' , $page->post_excerpt )) : $featured_text ;
-            $text                           = ( empty($text) && !post_password_required($featured_page_id) ) ? strip_tags(apply_filters( 'the_content' , $page->post_content )) : $text ;
+            //set page/post excerpt as default text if no $featured_text
+            $text                           = ( empty($featured_text) && !post_password_required($featured_page_id) ) ? strip_tags(apply_filters( 'the_excerpt' , $_post->post_excerpt )) : $featured_text ;
+            $text                           = ( empty($text) && !post_password_required($featured_page_id) ) ? strip_tags(apply_filters( 'the_content' , $_post->post_content )) : $text ;
 
             //limit text to 200 car
             $default_fp_text_length         = $tc_fp_text_limit ? apply_filters( 'fpc_text_length', 200 ) : 9999;
-            $text                           = ( strlen($text) > $default_fp_text_length ) ? substr( $text , 0 , strpos( $text, ' ' , $default_fp_text_length) ). ' ...' : $text;
+            $tc_fp_text_length = strlen($text);
+            if ( $tc_fp_text_length > $default_fp_text_length ){
+                /* strpos returns FALSE if the needle was not found this coudl mess up substr*/
+                $end_substr = strpos( $text, ' ' , $default_fp_text_length);
+                $end_substr = ( $end_substr !== FALSE ) ? $end_substr : $tc_fp_text_length;
+                $text       = substr( $text , 0 , $end_substr );
+                $text       = ( $end_substr == $tc_fp_text_length ) ? $text : $text . ' ...';
+            }
               
             //set the image : uses thumbnail if any then >> the first attached image then >> a holder script
             $fp_img_size                    = apply_filters( 'fpc_img_size' , 'fpc-size' );
             $fp_img_id                      = apply_filters( 'fpc_img_id', false , $fp_single_id , $featured_page_id );
 
-            list ($fp_img , $fp_img_height , $fp_img_width)  = $this -> tc_get_img_src( $fp_img , $featured_page_id , $fp_img_id , $fp_img_size );
+            //try to get "tc_thumb" , "tc_thumb_height" , "tc_thumb_width"
+            //tc_get_thumbnail_model( $requested_size = null, $_post_id = null , $_thumb_id = null )
+            $_fp_img_model = TC_utils_thumb::$instance -> tc_get_thumbnail_model( $fp_img_size, $featured_page_id, $fp_img_id );
+
+            //finally we define a default holder if no thumbnail found or page is protected
+            if ( isset( $_fp_img_model["tc_thumb"]) && ! empty( $_fp_img_model["tc_thumb"] ) && ! post_password_required( $featured_page_id ) )
+              $fp_img = $_fp_img_model["tc_thumb"];
+            else
+              $fp_img = $fp_holder_img;
             
             //finally we define a default holder if no thumbnail found or page is protected
-            $fp_img                 = apply_filters ('fp_img_src' , ( post_password_required($featured_page_id) ) ? $fp_holder_img : $fp_img , $fp_single_id , $featured_page_id );
+            $fp_img                 = apply_filters ('fp_img_src' , $fp_img , $fp_single_id , $featured_page_id );
           }//end if
 
           //Let's render this
@@ -270,10 +291,14 @@ class TC_front_fpc {
               echo apply_filters( 'fpc_img_block' , $tc_fp_img_block , $fp_single_id );
               
               //title block
-              $tc_fp_title_block  = sprintf('<%1$s class="fp-title %2$s">%3$s</%1$s>',
+              $tc_fp_title_block  = sprintf('<%1$s class="fp-title %2$s">%3$s%4$s</%1$s>',
                                     apply_filters( 'fpc_title_tag' , 'h2' ),
                                     $tc_show_fp_title ? '' : 'fpc-hide',
-                                    $featured_page_title
+                                    $featured_page_title,
+                                    ( isset($edit_enabled) && $edit_enabled )? sprintf(' <span class="edit-link fpc-btn fpc-btn-inverse btn btn-inverse btn-mini"><a class="post-edit-link" href="%1$s" title="%2$s" target="_blank">%2$s</a></span>',
+                                              get_edit_post_link( $featured_page_id ),
+                                              __( 'Edit' , 'customizr' )
+                                              ) : ''                                    
               );
               echo apply_filters( 'fpc_title_block' , $tc_fp_title_block , $featured_page_title );
 
@@ -319,66 +344,19 @@ class TC_front_fpc {
     }//end of function
 
 
-    function tc_get_img_src( $fp_img , $featured_page_id , $fp_img_id , $fp_img_size ) {
-        $fp_img_height = '';
-        $fp_img_width = '';
-        if ( has_post_thumbnail( $featured_page_id ) && ! $fp_img_id ) {
-            $fp_img_id                = get_post_thumbnail_id( $featured_page_id );
-
-            //check if fpc-size size exists for attachment and return large if not
-            $image                    = wp_get_attachment_image_src( $fp_img_id , $fp_img_size );
-            $fp_img_size              = ( null == $image[3] ) ? 'medium' : $fp_img_size ;
-
-            $fp_img                   = get_the_post_thumbnail( $featured_page_id , $fp_img_size);
-            //get height and width
-            $fp_img_height            = $image[2];
-            $fp_img_width             = $image[1];
-        }
-
-        //If not uses the first attached image
-        else {
-            //look for attachements
-            $tc_args = array(
-              'numberposts'           =>  1,
-              'post_type'             =>  'attachment' ,
-              'post_status'           =>  null,
-              'post_parent'           =>  $featured_page_id,
-              'post_mime_type'        =>  array( 'image/jpeg' , 'image/gif' , 'image/jpg' , 'image/png' )
-              ); 
-
-              $attachments            =  ! $fp_img_id ? get_posts( $tc_args) : get_post( $fp_img_id );
-
-              if ( $attachments) {
-
-                  foreach ( $attachments as $attachment) {
-                     //check if fpc-size size exists for attachment and return large if not
-                    $image            = wp_get_attachment_image_src( $attachment->ID, $fp_img_size );
-                    $fp_img_size      = ( false == $image[3] ) ? 'medium' : $fp_img_size;
-                    $fp_img           = wp_get_attachment_image( $attachment->ID, $fp_img_size );
-                    //get height and width
-                    $fp_img_height    = $image[2];
-                    $fp_img_width     = $image[1];
-                  }//end foreach
-
-              }//end if
-      }//end if
-      return array($fp_img , $fp_img_height , $fp_img_width );
-    }
-
 
 
     function tc_enqueue_plug_resources() {
-        wp_enqueue_style( 
+        wp_enqueue_style(
           'fpc-front-style' ,
-          plugins_url( TC_FPC_DIR_NAME . '/front/assets/css/fpc-front.min.css' ),
-          null, 
-          null,
-          $media = 'all' 
+          sprintf('%1$s/front/assets/css/fpc-front.min.css' , TC_FPC_BASE_URL ),
+          array(),
+          TC_fpc::$instance -> plug_version,
+          $media = 'all'
         );
-
         //register and enqueue jQuery if necessary
         if ( ! wp_script_is( 'jquery', $list = 'registered') ) {
-            wp_register_script('jquery', '//code.jquery.com/jquery-latest.min.js', false, null, false );
+            wp_register_script('jquery', '//code.jquery.com/jquery-latest.min.js', array(), false, false );
         }
         if ( ! wp_script_is( 'jquery', $list = 'enqueued') ) {
           wp_enqueue_script( 'jquery');
@@ -386,12 +364,36 @@ class TC_front_fpc {
 
         //FPC Front end scripts
         wp_enqueue_script(
-          'fpc-front-js' ,
-          plugins_url( TC_FPC_DIR_NAME . '/front/assets/js/fpc-front.min.js' ) ,
-          'jquery',
-          null, 
+          'fpc-front-js',
+          sprintf('%1$s/front/assets/js/fpc-front.min.js' , TC_FPC_BASE_URL ),
+          array('jquery'),
+          TC_fpc::$instance -> plug_version,
           false
         );
+
+        //enqueue imageCenter.js only if
+        //1) not customizr
+        //2) customizr v < 3.3.5
+        // not needed for customizr-pro since this plugin will be disabled
+        $_imgcenter_bool = false;
+        if ( false === strpos(TC_fpc::$theme_name, 'customizr') )
+          $_imgcenter_bool = true;
+        else {
+          if ( 'customizr' == TC_fpc::$theme_name && version_compare( TC_fpc::$theme_version , '3.3.5' , '<' ) )
+            $_imgcenter_bool = true;
+        }
+        $_imgcenter_bool = $_imgcenter_bool && 1 == esc_attr( tc__f( '__get_fpc_option' , 'tc_center_fp_img' ) );
+
+        if ( apply_filters('fpc_enqueue_centerimagejs' , $_imgcenter_bool ) ) {
+
+          wp_enqueue_script(
+            'tc-center-images',
+            sprintf('%1$s/front/assets/js/jqueryCenterImages.min.js' , TC_FPC_BASE_URL ),
+            array('jquery', 'fpc-front-js'),
+            TC_fpc::$instance -> plug_version,
+            false
+          );
+        }
 
         //localizes
         wp_localize_script( 
@@ -399,20 +401,24 @@ class TC_front_fpc {
           'FPCFront',
           apply_filters('tc_fpc_js_front_params' ,
             array(
-              'Spanvalue'   => $this -> tc_get_layout('span'),
-              'ThemeName'   => str_replace( ' ' , '-', TC_fpc::$theme_name) 
+              'Spanvalue'        => $this -> tc_get_layout('span'),
+              'ThemeName'        => str_replace( ' ' , '-', TC_fpc::$theme_name),
+              'imageCentered'    => esc_attr( tc__f( '__get_fpc_option' , 'tc_center_fp_img' ) )
             )
           )
         );
 
-        //holder image
-        wp_enqueue_script(
-          'holder' ,
-          plugins_url( TC_FPC_DIR_NAME . '/front/assets/js/holder.js' ) ,
-          null,
-          null, 
-          $in_footer = false
-        );
+        $tc_show_featured_pages_img     = esc_attr( tc__f( '__get_fpc_option' , 'tc_show_fp_img' ) );
+        if ( 0 != $tc_show_featured_pages_img ) {
+          //holder image
+          wp_enqueue_script(
+            'holder' ,
+            sprintf( '%s/front/assets/js/holder.js' , TC_FPC_BASE_URL ),
+            array(),
+            TC_fpc::$instance -> plug_version,
+            $in_footer = false
+          );
+        }
     }
 
 } //end of class

@@ -84,7 +84,7 @@
   margin: 10px 0;
   font-family: inherit;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 1.2em;
   color: inherit;
   text-shadow: 0 1px 0 #FFF;
   text-align: center
@@ -114,8 +114,25 @@
 .fpc-widget-front .thumb-wrapper img {
   min-height: 250px;
   z-index: 90;
-  max-width: 100%
+  max-width: 100%;
+  position: relative
 }
+/* WHEN HACKEC FOR IE, img is wrapped by <a> */
+.ie .fpc-widget-front .thumb-wrapper a > img {
+  min-height: inherit;
+}
+
+/* JS IMAGE CENTERING */
+.fpc-widget-front img.h-centered {
+  width: auto!important;
+  max-width: none!important;
+}
+.fpc-widget-front img.v-centered {
+  height: auto!important;
+  max-height: none!important;
+  vertical-align: top;
+}
+
 .fpc-widget-front .round-div {
   display: block;
   background: rgba(0,0,0,0)!important;
@@ -450,6 +467,12 @@
   background-color: #b07b12;
   *background-color: #996b0f
 }
+.edit-link.fpc-btn {
+  margin-top: 0;
+}
+.edit-link.fpc-btn a {
+  color: #000;
+}
 .fpc-row-fluid.fpc-widget-area:first-child {
   margin-top: 0
 }
@@ -605,7 +628,20 @@
   .fpc-row-fluid .fpc-span6 {
     width: 48.61878453%;
     *width: 48.565593041%
-}
+  }
+  .fpc-row-fluid .fpc-span3 .fpc-widget-front .round-div {
+    width: 100px;
+    height: 100px;
+    top: -41px;
+    left: -79px;
+  }
+  .fpc-row-fluid .fpc-span3 .fpc-widget-front .thumb-wrapper img {
+    min-height: 250px;
+    top: -1px;
+    right: 47px;
+    z-index: 90;
+    max-width: none;
+  }
 
 }
 @media (max-width: 767px) {
@@ -636,15 +672,15 @@
 }
 
 @media (max-width: 480px) {
- 
+
 }
 
 @media (max-width: 320px) {
-  .fpc-widget-front .thumb-wrapper {
+/*  .fpc-widget-front .thumb-wrapper {
     left: 0px;
     width: 100%;
   }
   .fpc-row-fluid .fpc-span12 .thumb-wrapper img, .fpc-row-fluid .fpc-span6 .thumb-wrapper img {
     max-width: none!important;
-  }
+  }*/
 }

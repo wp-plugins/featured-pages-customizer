@@ -1,22 +1,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Unlimited FP\n"
-"POT-Creation-Date: 2014-05-11 11:02+0100\n"
-"PO-Revision-Date: 2014-05-11 11:02+0100\n"
-"Last-Translator: Nicolas <contact@themesandco.com>\n"
-"Language-Team: Nicolas G. <contact@themesandco.com>\n"
-"Language: Français\n"
+"POT-Creation-Date: 2015-03-22 10:25+0100\n"
+"PO-Revision-Date: 2015-03-22 10:25+0100\n"
+"Last-Translator: Rocco Aliberti\n"
+"Language-Team: Nicolas G. <contact@presscustomizr.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-KeywordsList: __;_e;_n\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../back/classes/class_back_fpc.php:32
+#: ../back/classes/class_back_fpc.php:50
 #, fuzzy
 msgid "Settings"
 msgstr "Réglages de la structure de page"
@@ -54,6 +53,25 @@ msgstr ""
 msgid "Titles and excerpts"
 msgstr ""
 
+#: ../featured-pages-customizer.php:335
+msgid "in Featured Pages Unlimited plugin"
+msgstr ""
+
+#: ../featured-pages-customizer.php:336
+msgid "in this theme"
+msgstr ""
+
+#: ../featured-pages-customizer.php:341
+#, php-format
+msgid " Open the <a href=\"%s\">plugins page</a> to deactivate it."
+msgstr ""
+
+#: ../featured-pages-customizer.php:348
+#, php-format
+msgid ""
+"The <strong>%s</strong> plugin must be disabled since it is included %s.%s"
+msgstr ""
+
 #: ../front/classes/class_front_fpc.php:159
 msgid "Edit Featured Pages"
 msgstr ""
@@ -73,202 +91,216 @@ msgstr ""
 #: ../front/classes/class_front_fpc.php:216
 #, php-format
 msgid ""
-"Featured page description text : use the page or post excerpt or set your "
-"own custom text in the WordPress customizer screen %s."
+"Featured page description text : use the page excerpt or set your own custom "
+"text in the WordPress customizer screen %s."
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:159
+#: ../front/classes/class_front_fpc.php:300
+msgid "Edit"
+msgstr ""
+
+#: ../utils/classes/class_utils_fpc.php:140
 msgid "Before header"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:160
+#: ../utils/classes/class_utils_fpc.php:141
 msgid "After main menu"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:161
+#: ../utils/classes/class_utils_fpc.php:142
 msgid "After header"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:162
+#: ../utils/classes/class_utils_fpc.php:143
 msgid "Before featured posts"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:163
+#: ../utils/classes/class_utils_fpc.php:144
 msgid "After featured posts"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:164
+#: ../utils/classes/class_utils_fpc.php:145
 msgid "Before main wrapper"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:165
+#: ../utils/classes/class_utils_fpc.php:146
 msgid "After main wrapper"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:166
+#: ../utils/classes/class_utils_fpc.php:147
 msgid "Before content"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:167
+#: ../utils/classes/class_utils_fpc.php:148
 msgid "Before footer"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:290
+#: ../utils/classes/class_utils_fpc.php:271
 msgid "Home featured page one"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:291
+#: ../utils/classes/class_utils_fpc.php:272
 msgid "Home featured page two"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:292
+#: ../utils/classes/class_utils_fpc.php:273
 msgid "Home featured page three"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:295
+#: ../utils/classes/class_utils_fpc.php:276
 msgid "Featured text one (200 char. max)"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:296
+#: ../utils/classes/class_utils_fpc.php:277
 msgid "Featured text two (200 char. max)"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:297
+#: ../utils/classes/class_utils_fpc.php:278
 msgid "Featured text three (200 char. max)"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:316
+#: ../utils/classes/class_utils_fpc.php:297
 #, php-format
 msgid "Custom featured page %1$s"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:333
+#: ../utils/classes/class_utils_fpc.php:314
 #, php-format
 msgid "Featured text %1$s (200 car. max)"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:336
+#: ../utils/classes/class_utils_fpc.php:317
 msgid ""
 "You need to select a page first. Leave this field empty if you want to use "
 "the excerpt. You can include HTML tags."
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:348
+#: ../utils/classes/class_utils_fpc.php:329
 msgid " &#45; Select &#45; "
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:349
+#: ../utils/classes/class_utils_fpc.php:330
 msgid "Blue"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:350
+#: ../utils/classes/class_utils_fpc.php:331
 msgid "Green"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:351
+#: ../utils/classes/class_utils_fpc.php:332
 msgid "Yellow"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:352
+#: ../utils/classes/class_utils_fpc.php:333
 msgid "Orange"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:353
+#: ../utils/classes/class_utils_fpc.php:334
 msgid "Red"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:354
+#: ../utils/classes/class_utils_fpc.php:335
 msgid "Purple"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:355
+#: ../utils/classes/class_utils_fpc.php:336
 msgid "Grey"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:356
+#: ../utils/classes/class_utils_fpc.php:337
 msgid "Light grey"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:357
+#: ../utils/classes/class_utils_fpc.php:338
 msgid "Black"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:383
+#: ../utils/classes/class_utils_fpc.php:364
 msgid "Featured Pages"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:385
+#: ../utils/classes/class_utils_fpc.php:366
 msgid "Customize your featured pages"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:410
+#: ../utils/classes/class_utils_fpc.php:391
 msgid "Display home featured pages area"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:414
+#: ../utils/classes/class_utils_fpc.php:395
 msgid "Enable"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:415
+#: ../utils/classes/class_utils_fpc.php:396
 msgid "Disable"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:424
+#: ../utils/classes/class_utils_fpc.php:405
 msgid "Select a location"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:438
+#: ../utils/classes/class_utils_fpc.php:419
 msgid "Background color"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:448
+#: ../utils/classes/class_utils_fpc.php:429
 msgid "Display thumbnails"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:451
+#: ../utils/classes/class_utils_fpc.php:432
 msgid ""
-"The images are set with the \"featured image\" of each pages. Uncheck the "
+"The images are set with the \"featured image\" of each page. Uncheck the "
 "option above to disable the featured images."
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:460
+#: ../utils/classes/class_utils_fpc.php:439
+msgid "Dynamic thumbnails centering on any devices"
+msgstr ""
+
+#: ../utils/classes/class_utils_fpc.php:443
+msgid ""
+"This option dynamically centers your images on any devices vertically or "
+"horizontally (without stretching them) according to their initial dimensions."
+msgstr ""
+
+#: ../utils/classes/class_utils_fpc.php:450
 msgid "Display titles"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:471
+#: ../utils/classes/class_utils_fpc.php:461
 msgid "Display excerpts"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:484
+#: ../utils/classes/class_utils_fpc.php:474
 msgid "Title/excerpt color"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:494
+#: ../utils/classes/class_utils_fpc.php:484
 msgid "Limit excerpt to 200 chars."
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:497
+#: ../utils/classes/class_utils_fpc.php:487
 msgid ""
 "Uncheck this option if you want to disable the default limit of the excerpt."
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:506
+#: ../utils/classes/class_utils_fpc.php:496
 msgid "Display buttons"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:513
+#: ../utils/classes/class_utils_fpc.php:503
 msgid "Read more &raquo;"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:515
+#: ../utils/classes/class_utils_fpc.php:505
 msgid "Button text"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:526
+#: ../utils/classes/class_utils_fpc.php:516
 msgid "Select a button style"
 msgstr ""
 
-#: ../utils/classes/class_utils_fpc.php:540
+#: ../utils/classes/class_utils_fpc.php:530
 msgid "Button text color"
 msgstr ""
 

@@ -2,11 +2,11 @@
 /**
 * Add controls to customizer
 *
-* 
+*
 * @package      FPC
 * @subpackage   classes
 * @since        1.0
-* @author       Nicolas GUILLAUME <nicolas@themesandco.com>
+* @author       Nicolas GUILLAUME <nicolas@presscustomizr.com>
 * @copyright    Copyright (c) 2013, Nicolas GUILLAUME
 */
 
@@ -27,7 +27,7 @@ class TC_controls_fpc extends WP_Customize_Control	{
     	$plug_option_prefix     = TC_fpc::$instance -> plug_option_prefix;
     	$lang 					= TC_fpc::$instance -> plug_lang;
     	$setting 				= str_replace( array('data-customize-setting-link=', $plug_option_prefix, '"' , "[" , "]" ) , '', $this -> get_link() );
-    	
+
     	$titles 				= array(
     		'tc_fp_position' 		=> __( 'Location' , $lang ),
     		'tc_fp_background' 		=> __( 'Main colors', $lang ),
@@ -120,12 +120,12 @@ class TC_controls_fpc extends WP_Customize_Control	{
         	case 'checkbox':
 			?>
 				<div class="tc-check-label">
-					<label>	
+					<label>
 						<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 					</label>
 				</div>
 				<input type="checkbox" class="iphonecheck" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); checked( $this->value() ); ?> />
-				
+
 				<?php if(!empty( $this -> notice)) : ?>
 			       <span class="tc-notice"><?php echo esc_html( $this-> notice ) ?></span>
 			     <?php endif; ?>
@@ -157,7 +157,7 @@ class TC_controls_fpc extends WP_Customize_Control	{
 		        $post_types     = get_post_types(array( 'public' => true));
 		        $excludes       = array( 'attachment' );
 		        $tc_all_posts  	= array();
-		        
+
 	            $tc_all_posts['page'] = get_posts(  array(
 	                'numberposts'     =>  1000,
 	                'orderby'         =>  'date' ,
@@ -172,7 +172,7 @@ class TC_controls_fpc extends WP_Customize_Control	{
 				          <select <?php echo $this->link() ?>>
 			                <?php //no link option ?>
 			                <option value="0" <?php selected( $this->value(), 0, $echo = true ) ?>> &#45; Select &#45; </option>
-			                
+
 			                <?php foreach( $tc_all_posts as $type) : ?>
 			                    <?php foreach ( $type as $key => $item) : ?>
 
@@ -207,7 +207,7 @@ class TC_Color_Control extends WP_Customize_Color_Control	{
 		$plug_option_prefix     = TC_fpc::$instance -> plug_option_prefix;
     	$lang 					= TC_fpc::$instance -> plug_lang;
     	$setting 				= str_replace( array('data-customize-setting-link=', $plug_option_prefix, '"' , "[" , "]" ) , '', $this -> get_link() );
-    	
+
     	$titles 				= array(
     		'tc_fp_position' 		=> __( 'Location' , $lang ),
     		'tc_fp_background' 		=> __( 'Main colors', $lang ),
